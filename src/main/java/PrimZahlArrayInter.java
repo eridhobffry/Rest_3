@@ -1,3 +1,3 @@
 public interface PrimZahlArrayInter {
-    public int[] primZahlArray (int size);
+    int[] primZahlArray (int size);
 }
