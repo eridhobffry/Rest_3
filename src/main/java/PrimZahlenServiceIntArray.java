@@ -4,9 +4,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.*;
 
-@Path("myressourceint")
+@Path("myresourceint")
 public class PrimZahlenServiceIntArray {
 
 //    @GET
@@ -20,13 +21,13 @@ public class PrimZahlenServiceIntArray {
 
     @Path("{zahl}")
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public int [] getPrimZahlArray(@PathParam("zahl") int zahl) throws Exception {
-        PrimZahlArrayInter prim =new PrimZahlArrayImpl();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPrimZahlArray(@PathParam("zahl") Integer zahl) throws Exception {
+        PrimZahlArrayInter prim = new PrimZahlArrayImpl();
         int[] result;
         result = prim.primZahlArray(zahl);
 
-        return result;
+        return Response.status(200).entity(result).build();
     }
 
 }
